@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Chart" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +15,35 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9r-yf-pss" customClass="KChartView" customModule="Chart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="203" width="600" height="354"/>
+                                <color key="backgroundColor" red="0.95564236111111112" green="0.94114583333333335" blue="0.93570601851851853" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pvv-fU-fWh">
+                                <rect key="frame" x="266" y="35" width="123" height="29"/>
+                                <segments>
+                                    <segment title="Bar"/>
+                                    <segment title="Line"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="aTv-C6-XJX"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="pvv-fU-fWh" secondAttribute="centerX" constant="-27.5" id="G1n-Ih-cG3"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="L9r-yf-pss" secondAttribute="bottom" constant="43" id="JRg-k0-byC"/>
+                            <constraint firstAttribute="trailing" secondItem="L9r-yf-pss" secondAttribute="trailing" id="UEJ-DD-jw3"/>
+                            <constraint firstItem="pvv-fU-fWh" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="35" id="cuM-CM-n4O"/>
+                            <constraint firstItem="L9r-yf-pss" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n8A-xn-3cN"/>
+                            <constraint firstItem="L9r-yf-pss" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="203" id="nAk-1b-1Xy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chartView" destination="L9r-yf-pss" id="MtX-Va-mOl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

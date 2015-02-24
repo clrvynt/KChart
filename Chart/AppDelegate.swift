@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Chart
 //
-//  Created by kalyankrishnamurthi on 2/23/15.
+//  Created by KK on 2/23/15.
 //  Copyright (c) 2015 KK. All rights reserved.
 //
 
